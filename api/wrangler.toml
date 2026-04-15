@@ -1,0 +1,35 @@
+name = "mystore-api"
+main = "src/index.ts"
+compatibility_date = "2024-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ─── D1 Database ───
+[[d1_databases]]
+binding = "DB"
+database_name = "mystore-db"
+database_id = "YOUR_D1_DATABASE_ID"
+
+# ─── KV Namespace ───
+[[kv_namespaces]]
+binding = "STORE_KV"
+id = "YOUR_KV_NAMESPACE_ID"
+preview_id = "YOUR_KV_PREVIEW_ID"
+
+# ─── Environment Variables (non-secret) ───
+[vars]
+STORE_NAME = "MyStore"
+STORE_TAGLINE = "your store Buddy"
+STORE_EMAIL = "orders@mystore.in"
+STORE_PHONE = "+91-XXXXXXXXXX"
+STORE_ADDRESS = "MyStore, Main Market, City, State - PIN"
+DELIVERY_CHARGE = "40"
+FRONTEND_URL = "https://mystore.in"
+RAZORPAY_WEBHOOK_SECRET = ""
+
+# ─── Secrets (set via wrangler secret put) ───
+# wrangler secret put RESEND_API_KEY
+# wrangler secret put RAZORPAY_KEY_ID
+# wrangler secret put RAZORPAY_KEY_SECRET
+# wrangler secret put ADMIN_EMAIL
+# wrangler secret put ADMIN_API_KEY
+# wrangler secret put WEBHOOK_SECRET
