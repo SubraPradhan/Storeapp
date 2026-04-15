@@ -20,19 +20,19 @@ const statusIcons: Record<string, string> = {
 const StatusTimeline: React.FC<StatusTimelineProps> = ({ steps }) => {
   const { t } = useLangStore();
 
-  const getStatusLabel = (status: string): string => {
-    const map: Record<string, keyof ReturnType<typeof t extends (k: infer K) => string ? { [P in K]: string } : never>> = {
-      pending: 'statusPending',
-      verified: 'statusVerified',
-      accepted: 'statusAccepted',
-      paid: 'statusPaid',
-      shipped: 'statusShipped',
-      delivered: 'statusDelivered',
-      cancelled: 'statusCancelled',
-    };
-    const key = map[status];
-    return key ? t(key as Parameters<typeof t>[0]) : status;
+ const getStatusLabel = (status: string): string => {
+  const map: Record<string, Parameters<typeof t>[0]> = {
+    pending: 'statusPending',
+    verified: 'statusVerified',
+    accepted: 'statusAccepted',
+    paid: 'statusPaid',
+    shipped: 'statusShipped',
+    delivered: 'statusDelivered',
+    cancelled: 'statusCancelled',
   };
+  const key = map[status];
+  return key ? t(key) : status;
+};
 
   return (
     <div className="flex flex-col gap-0">

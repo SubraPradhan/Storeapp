@@ -15,7 +15,7 @@ const Checkout: React.FC = () => {
   const { items, updateQuantity, removeItem, getSubtotal, clearCart } =
     useCartStore();
   const { t } = useLangStore();
-  const { placeOrder, loading, error, setError } = useOrder();
+  const { placeOrder, loading, error } = useOrder();
 
   const [deliveryType, setDeliveryType] = useState<'delivery' | 'pickup'>(
     'delivery'

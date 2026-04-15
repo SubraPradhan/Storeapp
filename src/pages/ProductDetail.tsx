@@ -12,7 +12,7 @@ import EmptyState from '@/components/EmptyState';
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { product, related, loading, error, refetch } = useProduct(id);
+  const { product, related, loading, error } = useProduct(id);
   const { addItem, updateQuantity, getItemQuantity } = useCartStore();
   const { t } = useLangStore();
 
